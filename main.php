@@ -1,6 +1,6 @@
 <?php
 
-use xhprof\run\Boostrap;
+use xhprof\run\Bootstrap;
 require "src/autoload.php";
-Boostrap::run();
+Bootstrap::run();
 echo "run \n";

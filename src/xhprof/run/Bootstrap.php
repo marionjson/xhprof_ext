@@ -12,10 +12,10 @@ use xhprof\util\ShutdownScheduler;
 
 /***
  * 引导程序
- * Class Boostrap
+ * Class Bootstrap
  * @package xhprof\run
  */
-class Boostrap
+class Bootstrap
 {
 
 

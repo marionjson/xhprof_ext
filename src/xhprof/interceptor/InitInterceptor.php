@@ -4,7 +4,7 @@ namespace xhprof\Interceptor;
 
 use xhprof\bean\BaseInstance;
 use xhprof\Interceptor\impl\XhprofInterceptor;
-use xhprof\run\Boostrap;
+use xhprof\run\Bootstrap;
 use xhprof\util\ShutdownScheduler;
 
 /****
