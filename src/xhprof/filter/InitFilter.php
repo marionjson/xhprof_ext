@@ -4,6 +4,7 @@ namespace xhprof\filter;
 
 
 use xhprof\filter\impl\GatewayFilter;
+use xhprof\filter\impl\LimitFilter;
 use xhprof\Interceptor\InitInterceptor;
 use xhprof\util\ShutdownScheduler;
 
@@ -23,6 +24,10 @@ class InitFilter extends ShutdownScheduler
          * @var GatewayFilter 网关验证器
          */
         "xhprof\\filter\\impl\\GatewayFilter",
+        /***
+         * @var LimitFilter 网关验证器
+         */
+        "xhprof\\filter\\impl\\LimitFilter",
     ];
 
     /***
