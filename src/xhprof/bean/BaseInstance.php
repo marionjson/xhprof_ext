@@ -18,7 +18,7 @@ class BaseInstance
     public static function getInstance()
     {
         $name = md5(serialize(get_called_class()));
-        if (is_null(self::$instance[$name])) {
+        if (empty(self::$instance[$name])) {
             self::$instance[$name] = new static();
         }
         return self::$instance[$name];

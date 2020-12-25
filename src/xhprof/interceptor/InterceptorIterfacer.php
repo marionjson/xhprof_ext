@@ -3,11 +3,10 @@
 namespace xhprof\Interceptor;
 
 
-interface InterceptorIterfacer
+use xhprof\bean\BehaviorIterfacer;
+
+interface InterceptorIterfacer extends BehaviorIterfacer
 {
 
-    public function beforeInterceptor(...$params);
-
-    public function afterInterceptor(...$params);
 
 }

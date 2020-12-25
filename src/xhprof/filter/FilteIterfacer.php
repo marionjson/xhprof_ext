@@ -3,11 +3,9 @@
 namespace xhprof\filter;
 
 
-interface FilteIterfacer
+use xhprof\bean\BehaviorIterfacer;
+
+interface FilteIterfacer extends BehaviorIterfacer
 {
-
-    public function beforeFilter(...$params);
-
-    public function afterFilter(...$params);
 
 }

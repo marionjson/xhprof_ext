@@ -10,7 +10,9 @@ return [
         //最大令牌桶数量
         "max_limit_token"  =>100,
         //最大等待时长-毫秒
-        "max_wait_time"  =>1000
-    ]
+        "max_wait_time"  =>1000,
+        //百分比限流
+        "rate_limit"=>1
+    ],
 
 ];

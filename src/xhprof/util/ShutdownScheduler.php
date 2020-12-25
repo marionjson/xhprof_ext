@@ -17,6 +17,14 @@ class ShutdownScheduler extends BaseInstance
      */
     private static $scheduler = false;
 
+
+    /**
+     * 响应事件列表
+     * @var array
+     */
+    private static $callbacks;
+
+
     /***
      * 注册事件调度器
      */
@@ -28,14 +36,6 @@ class ShutdownScheduler extends BaseInstance
         }
     }
 
-
-    /**
-     * 响应事件列表
-     * @var array
-     */
-    private static $callbacks;
-
-
     /****
      * 注册关机事件
      * @return bool
@@ -43,6 +43,7 @@ class ShutdownScheduler extends BaseInstance
     public static function registerShutdownEvent()
     {
         self::$callbacks[] = func_get_args();
+        return true;
     }
 
     /***
@@ -50,12 +51,13 @@ class ShutdownScheduler extends BaseInstance
      */
     public function callRegisteredShutdown()
     {
-        foreach (self::$callbacks as &$arguments) {
-            $callback = array_shift($arguments);
-            call_user_func_array($callback, $arguments);
+        if(isset(self::$callbacks)){
+            foreach (array_reverse(self::$callbacks) as &$arguments) {
+                $callback = array_shift($arguments);
+                call_user_func_array($callback, $arguments);
+            }
+            self::$callbacks = [];
         }
-        self::$callbacks = [];
     }
-
 
 }

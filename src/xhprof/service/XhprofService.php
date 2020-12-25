@@ -2,6 +2,7 @@
 
 namespace xhprof\service;
 
+use xhprof\bean\XhprofBean;
 use xhprof\bean\XhprofExtensionBean;
 use xhprof\util\XhprofUtil;
 
@@ -31,8 +32,8 @@ class XhprofService
      */
     public static function disable()
     {
-        $xhprofProfile = XhprofUtil::disable();
-        if ($xhprofProfile) {
+        $profProfile = XhprofUtil::disable();
+        if ($profProfile instanceof XhprofBean) {
             //TODO 数据库存储实现
         }
         return true;

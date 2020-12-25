@@ -20,20 +20,20 @@ class GatewayFilter extends Filter implements FilteIterfacer
      * @param mixed ...$params
      * @return bool
      */
-    public function beforeFilter(...$params)
+    public function before(...$params)
     {
         // TODO: Implement beforeFilter() method.
         //域名拦截器
-        if (ConfigUtil::read('ignore_url')) {
-            foreach (ConfigUtil::read('ignore_url') as $url) {
+        if (ConfigUtil::read('xhprof_ignore_domain')) {
+            foreach (ConfigUtil::read('xhprof_ignore_domain') as $url) {
                 if (stripos($_SERVER['REQUEST_URI'], $url) !== FALSE) {
                     return false;
                 }
             }
         }
         //路由拦截器
-        if (ConfigUtil::read('ignore_url')) {
-            foreach (ConfigUtil::read('ignore_url') as $url) {
+        if (ConfigUtil::read('xhprof_ignore_route')) {
+            foreach (ConfigUtil::read('xhprof_ignore_route') as $url) {
                 if (stripos($_SERVER['REQUEST_URI'], $url) !== FALSE) {
                     return false;
                 }
@@ -46,8 +46,9 @@ class GatewayFilter extends Filter implements FilteIterfacer
      * 后置过滤器校验
      * @param mixed ...$params
      */
-    public function afterFilter(...$params)
+    public function after(...$params)
     {
         // TODO: Implement afterFilter() method.
+        return true;
     }
 }

@@ -18,7 +18,6 @@ use xhprof\util\ShutdownScheduler;
 class Bootstrap
 {
 
-
     /***
      * 引导程序入口
      */
@@ -27,9 +26,8 @@ class Bootstrap
         try {
             //注册配置
             self::injectionConfig();
-            //开启过滤器 运行拦截器
-            InitFilter::getInstance()->register();
-            //开启过滤器 运行拦截器
+            //注册运行 过滤器 和 拦截器
+            InitFilter::getInstance()->register() &&
             InitInterceptor::getInstance()->register();
         }catch (\BaseException $exception){
             echo $exception->getMessage();

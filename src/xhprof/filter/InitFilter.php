@@ -3,67 +3,30 @@
 namespace xhprof\filter;
 
 
+use xhprof\bean\BehaviorRegistrar;
 use xhprof\filter\impl\GatewayFilter;
 use xhprof\filter\impl\LimitFilter;
 use xhprof\Interceptor\InitInterceptor;
-use xhprof\util\ShutdownScheduler;
 
 /****
  * Class InitFilter
  * @package xhprof\filter
  */
-class InitFilter extends ShutdownScheduler
+class InitFilter extends BehaviorRegistrar
 {
-
-
     /***
      * 过滤注册器
      */
-    const FILTER_BEHAVIOR_INJECTION = [
+    const BEHAVIOR_INJECTION = [
         /***
-         * @var GatewayFilter 网关验证器
+         * @var GatewayFilter 网关过滤器
          */
         "xhprof\\filter\\impl\\GatewayFilter",
+
         /***
-         * @var LimitFilter 网关验证器
+         * @var LimitFilter 限流过滤器
          */
         "xhprof\\filter\\impl\\LimitFilter",
     ];
-
-    /***
-     * 运行拦截器
-     * @param string $behavior
-     * @return bool|InitInterceptor
-     */
-    public function register()
-    {
-        return self::run("beforeFilter") &&
-            self::registerShutdownEvent(
-                [
-                    self::getInstance(),
-                    'run'
-                ],
-                "afterFilter"
-            );
-    }
-
-    /***
-     * 注册过滤器
-     * @param string $behavior
-     * @return bool
-     */
-    public static function run($behavior)
-    {
-        /***
-         * @var Filter $class
-         */
-        foreach (self::FILTER_BEHAVIOR_INJECTION as $class) {
-            if (!$class::getInstance()->$behavior()) {
-                return false;
-            }
-        }
-        return true;
-    }
-
 
 }

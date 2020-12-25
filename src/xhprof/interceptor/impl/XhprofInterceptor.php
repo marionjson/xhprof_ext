@@ -21,7 +21,7 @@ class XhprofInterceptor extends Interceptor implements InterceptorIterfacer
      * @param mixed ...$params
      * @return bool|string
      */
-    public function beforeInterceptor(...$params)
+    public function before(...$params)
     {
         // TODO: Implement beforeInterceptor() method.
         return XhprofService::enable();
@@ -32,7 +32,7 @@ class XhprofInterceptor extends Interceptor implements InterceptorIterfacer
      * @param mixed ...$params
      * @return bool
      */
-    public function afterInterceptor(...$params)
+    public function after(...$params)
     {
         // TODO: Implement afterInterceptor() method.
         return XhprofService::disable();

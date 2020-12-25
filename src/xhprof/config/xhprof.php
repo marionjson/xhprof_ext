@@ -10,5 +10,9 @@ return [
      */
     "xhprof_enable_config"=>[
         "ignored_functions"=>["checkDomain","checkIgnoreUrl"],
-    ]
+    ],
+    //忽略检测路由
+    "xhprof_ignore_route"=>[],
+    //忽略检测域名
+    "xhprof_ignore_domain"=>[],
 ];
