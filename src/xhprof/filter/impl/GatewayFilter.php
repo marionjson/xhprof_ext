@@ -22,7 +22,6 @@ class GatewayFilter extends Filter implements FilteIterfacer
      */
     public function beforeFilter(...$params)
     {
-        echo  "beforeFilter \n";
         // TODO: Implement beforeFilter() method.
         //域名拦截器
         if (ConfigUtil::read('ignore_url')) {
@@ -49,7 +48,6 @@ class GatewayFilter extends Filter implements FilteIterfacer
      */
     public function afterFilter(...$params)
     {
-        echo  "afterFilter2 \n";
         // TODO: Implement afterFilter() method.
     }
 }

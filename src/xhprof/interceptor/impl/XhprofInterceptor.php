@@ -34,7 +34,6 @@ class XhprofInterceptor extends Interceptor implements InterceptorIterfacer
      */
     public function afterInterceptor(...$params)
     {
-        echo  "afterInterceptor \n";
         // TODO: Implement afterInterceptor() method.
         return XhprofService::disable();
     }

@@ -29,15 +29,6 @@ class ShutdownScheduler extends BaseInstance
     }
 
 
-    /***
-     * ShutdownScheduler
-     * @return ShutdownScheduler
-     */
-    public static function getInstance()
-    {
-        return parent::getInstance();
-    }
-
     /**
      * 响应事件列表
      * @var array

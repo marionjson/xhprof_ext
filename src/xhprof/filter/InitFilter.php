@@ -3,7 +3,6 @@
 namespace xhprof\filter;
 
 
-use xhprof\bean\BaseInstance;
 use xhprof\filter\impl\GatewayFilter;
 use xhprof\Interceptor\InitInterceptor;
 use xhprof\util\ShutdownScheduler;
