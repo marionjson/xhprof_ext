@@ -5,10 +5,10 @@ namespace xhprof\bean;
 
 /***
  * 行为接口
- * Interface BehaviorIterfacer
+ * Interface BehaviorIterface
  * @package xhprof\bean
  */
-interface BehaviorIterfacer
+interface BehaviorIterface
 {
 
     public function before(...$params);

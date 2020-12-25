@@ -7,8 +7,6 @@ class ExtensionEnums
 
     const XHPROF  = "xhprof";
 
-    const TIDEWAYS  = "tideways";
-
-    const EXTENSION_LIST = [ExtensionEnums::TIDEWAYS_XHPROF,ExtensionEnums::XHPROF,ExtensionEnums::TIDEWAYS];
+    const EXTENSION_LIST = [ExtensionEnums::TIDEWAYS_XHPROF,ExtensionEnums::XHPROF];
 
 }

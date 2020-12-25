@@ -3,7 +3,7 @@
 namespace xhprof\filter\impl;
 
 
-use xhprof\filter\FilteIterfacer;
+use xhprof\filter\FilteIterface;
 use xhprof\filter\Filter;
 use xhprof\util\ConfigUtil;
 use xhprof\util\TrafficShaperUtil;
@@ -13,7 +13,7 @@ use xhprof\util\TrafficShaperUtil;
  * Class LimitFilter
  * @package xhprof\filter
  */
-class LimitFilter extends Filter implements FilteIterfacer
+class LimitFilter extends Filter implements FilteIterface
 {
 
 

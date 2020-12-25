@@ -60,7 +60,7 @@ class TrafficShaperUtil extends BaseInstance
      */
     public function collect()
     {
-        echo "领取令牌\n";
+//        echo "领取令牌\n";
 //        if (!empty($this->maxLimitToken) && $this->redis->handler()->lLen($this->redisKey) < $this->maxLimitToken) {
 //            return $this->redis->handler()->hSet($this->redisKey, RequestUtil::getUUID(),microtime());
 //        }
@@ -72,7 +72,7 @@ class TrafficShaperUtil extends BaseInstance
      */
     public function freed()
     {
-        echo "释放令牌\n";
+//        echo "释放令牌\n";
 //        if ($this->redis->handler()->hGet($this->redisKey, RequestUtil::getUUID())) {
 //            return $this->redis->handler()->hDel($this->redisKey, RequestUtil::getUUID());
 //        }

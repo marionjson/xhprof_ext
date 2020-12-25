@@ -3,7 +3,7 @@
 namespace xhprof\filter\impl;
 
 
-use xhprof\filter\FilteIterfacer;
+use xhprof\filter\FilteIterface;
 use xhprof\filter\Filter;
 use xhprof\util\ConfigUtil;
 
@@ -12,7 +12,7 @@ use xhprof\util\ConfigUtil;
  * Class GatewayFilter
  * @package xhprof\filter
  */
-class GatewayFilter extends Filter implements FilteIterfacer
+class GatewayFilter extends Filter implements FilteIterface
 {
 
     /***

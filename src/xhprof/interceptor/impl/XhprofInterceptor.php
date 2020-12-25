@@ -5,7 +5,7 @@ namespace xhprof\Interceptor\impl;
 
 use phpDocumentor\Reflection\Types\Boolean;
 use xhprof\Interceptor\Interceptor;
-use xhprof\Interceptor\InterceptorIterfacer;
+use xhprof\Interceptor\InterceptorIterface;
 use xhprof\service\XhprofService;
 
 /***
@@ -13,7 +13,7 @@ use xhprof\service\XhprofService;
  * Class GatewayInterceptor
  * @package xhprof\Interceptor
  */
-class XhprofInterceptor extends Interceptor implements InterceptorIterfacer
+class XhprofInterceptor extends Interceptor implements InterceptorIterface
 {
 
     /***
