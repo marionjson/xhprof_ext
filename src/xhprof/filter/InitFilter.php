@@ -6,7 +6,6 @@ namespace xhprof\filter;
 use xhprof\bean\BehaviorRegistrar;
 use xhprof\filter\impl\GatewayFilter;
 use xhprof\filter\impl\LimitFilter;
-use xhprof\Interceptor\InitInterceptor;
 
 /****
  * Class InitFilter

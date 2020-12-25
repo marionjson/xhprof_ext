@@ -2,6 +2,8 @@
 
 namespace xhprof\bean;
 
+use xhprof\util\RequestUtil;
+
 class XhprofBean
 {
 
@@ -46,7 +48,7 @@ class XhprofBean
      */
     public function __construct(ProcessDetailsBean $processDetailsBean)
     {
-        $this->threadId = uniqid();
+        $this->threadId = RequestUtil::getUUID();
         $this->processDetailsBean = $processDetailsBean;
         $this->url = PHP_SAPI === 'cli' ? implode(' ', $_SERVER['argv']) : $_SERVER['REQUEST_URI'];
         $this->requestMethod = PHP_SAPI === 'cli' ?'cli':$_SERVER['REQUEST_METHOD'];
