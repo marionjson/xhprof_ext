@@ -51,9 +51,9 @@ class XhprofBean
         $this->threadId = RequestUtil::getUUID();
         $this->processDetailsBean = $processDetailsBean;
         $this->url = PHP_SAPI === 'cli' ? implode(' ', $_SERVER['argv']) : $_SERVER['REQUEST_URI'];
-        $this->requestMethod = PHP_SAPI === 'cli' ?'cli':$_SERVER['REQUEST_METHOD'];
-        $this->serverName = !empty($_SERVER['SERVER_NAME'])?$_SERVER['SERVER_NAME']:"";
-        $this->requestTime = !empty($_SERVER['REQUEST_TIME'])?$_SERVER['REQUEST_TIME']:time();
+        $this->requestMethod = PHP_SAPI === 'cli' ? 'cli' : $_SERVER['REQUEST_METHOD'];
+        $this->serverName = !empty($_SERVER['SERVER_NAME']) ? $_SERVER['SERVER_NAME'] : "";
+        $this->requestTime = !empty($_SERVER['REQUEST_TIME']) ? $_SERVER['REQUEST_TIME'] : time();
         $this->requestParam = $this->getRequestParams();
     }
 
@@ -71,7 +71,7 @@ class XhprofBean
         } else {
             $params = $_POST ?: @file_get_contents('php://input');
         }
-        return is_array($params)?implode('&',$params):$params;
+        return is_array($params) ? implode('&', $params) : $params;
     }
 
 }

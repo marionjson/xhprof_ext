@@ -12,7 +12,7 @@ use xhprof\bean\XhprofBean;
 use xhprof\bean\XhprofExtensionBean;
 use xhprof\enmus\ExtensionEnums;
 
-class RequestUtil extends Request
+class RequestUtil
 {
 
 

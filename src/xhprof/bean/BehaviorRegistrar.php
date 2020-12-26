@@ -1,6 +1,5 @@
 <?php
 
-
 namespace xhprof\bean;
 
 use xhprof\filter\Filter;
@@ -19,6 +18,16 @@ class BehaviorRegistrar extends ShutdownScheduler
      */
     const BEHAVIOR_INJECTION = [];
 
+    /***
+     * 后置行为
+     */
+    const AFTER_BEHAVIOR = "after";
+
+    /***
+     * 前置行为
+     */
+    const BEFORE_BEHAVIOR = "before";
+
 
     /***
      * 注册行为
@@ -31,7 +40,7 @@ class BehaviorRegistrar extends ShutdownScheduler
          * @var Filter $class
          */
         foreach (static::getBehaviorInjectionByBehavior($behavior) as $class) {
-            echo $class . ":" . $behavior . "\n";
+            echo (string)$class . ":" . $behavior . "\n";
             if (!$class::getInstance()->$behavior()) {
                 return false;
             }
@@ -46,7 +55,7 @@ class BehaviorRegistrar extends ShutdownScheduler
      */
     public static function getBehaviorInjectionByBehavior($behavior)
     {
-        return $behavior=="after"?array_reverse(static::BEHAVIOR_INJECTION):static::BEHAVIOR_INJECTION;
+        return $behavior == static::AFTER_BEHAVIOR ? array_reverse(static::BEHAVIOR_INJECTION) : static::BEHAVIOR_INJECTION;
     }
 
 
@@ -57,13 +66,13 @@ class BehaviorRegistrar extends ShutdownScheduler
      */
     public function register()
     {
-        return static::run("before") &&
+        return static::run(static::BEFORE_BEHAVIOR) &&
             static::registerShutdownEvent(
                 [
                     static::getInstance(),
                     'run'
                 ],
-                "after"
+                static::AFTER_BEHAVIOR
             );
     }
 }

@@ -25,30 +25,15 @@ class Bootstrap
     {
         try {
             //注册配置
-            self::injectionConfig();
+            ConfigUtil::injectionConfig();
             //注册运行 过滤器 和 拦截器
             InitFilter::getInstance()->register() &&
             InitInterceptor::getInstance()->register();
-        }catch (\BaseException $exception){
+        } catch (\BaseException $exception) {
             echo $exception->getMessage();
         }
     }
 
-    /***
-     * 注入配置文件
-     */
-    public static function injectionConfig()
-    {
-        if ($head = opendir(XHPROF_CONFIG)) {
-            while (($file = readdir($head)) !== false) {
-                if ($file != ".." && $file != ".") {
-                    if (pathinfo($file, PATHINFO_EXTENSION) == "php") {
-                        ConfigUtil::load(XHPROF_CONFIG.$file);
-                    }
-                }
-            }
-        }
-        closedir($head);
-    }
+
 }
 

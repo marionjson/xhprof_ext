@@ -4,6 +4,7 @@
  * Class ConfigUtil
  * @package xhprof\util
  */
+
 namespace xhprof\util;
 
 class ConfigUtil
@@ -12,13 +13,14 @@ class ConfigUtil
      * 公共配置
      * @var
      */
-    protected static $config = [] ;
+    protected static $config = [];
 
     /***
      * 文件配置
      * @var
      */
-    protected static $fileConfig = [] ;
+    protected static $fileConfig = [];
+
 
     /**
      * 自动加载配置
@@ -26,7 +28,7 @@ class ConfigUtil
      */
     public static function load($file)
     {
-        if(empty(self::$fileConfig[$file])){
+        if (empty(self::$fileConfig[$file])) {
             self::$fileConfig[$file] = include($file);
         }
         self::$config = array_merge(self::$config, self::$fileConfig[$file]);
@@ -63,6 +65,23 @@ class ConfigUtil
     public static function clear()
     {
         self::$config = [];
+    }
+
+    /***
+     * 注入配置文件
+     */
+    public static function injectionConfig()
+    {
+        if ($head = opendir(XHPROF_CONFIG)) {
+            while (($file = readdir($head)) !== false) {
+                if ($file != ".." && $file != ".") {
+                    if (pathinfo($file, PATHINFO_EXTENSION) == "php") {
+                        ConfigUtil::load(XHPROF_CONFIG . $file);
+                    }
+                }
+            }
+        }
+        closedir($head);
     }
 
 
