@@ -12,7 +12,7 @@ return [
         //最大等待时长-毫秒
         "max_wait_time"  =>1000,
         //百分比限流
-        "rate_limit"=>1
+        "rate_limit"=>0.5
     ],
 
 ];

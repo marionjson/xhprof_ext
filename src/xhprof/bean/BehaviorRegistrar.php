@@ -11,8 +11,10 @@ use xhprof\util\ShutdownScheduler;
  * Class BaseInstance
  * @package xhprof\enmus\bean
  */
-class BehaviorRegistrar extends ShutdownScheduler
+class BehaviorRegistrar extends BaseInstance
 {
+    use ShutdownScheduler;
+
     /***
      * 行为注入
      */

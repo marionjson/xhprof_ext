@@ -2,14 +2,13 @@
 
 namespace xhprof\util;
 
-use xhprof\bean\BaseInstance;
 
 /***
  * 事件调度器
  * Class ShutdownScheduler
  * @package xhprof\util
  */
-class ShutdownScheduler extends BaseInstance
+trait  ShutdownScheduler
 {
     /**
      * 默认是否开启调度器
@@ -28,13 +27,14 @@ class ShutdownScheduler extends BaseInstance
     /***
      * 注册事件调度器
      */
-    public function __construct()
+    protected function __construct()
     {
         if (!self::$scheduler) {
             register_shutdown_function(array($this, 'callRegisteredShutdown'));
             self::$scheduler = true;
         }
     }
+
 
     /****
      * 注册关机事件
@@ -51,7 +51,7 @@ class ShutdownScheduler extends BaseInstance
      */
     public function callRegisteredShutdown()
     {
-        if(isset(self::$callbacks)){
+        if (isset(self::$callbacks)) {
             foreach (array_reverse(self::$callbacks) as &$arguments) {
                 $callback = array_shift($arguments);
                 call_user_func_array($callback, $arguments);
