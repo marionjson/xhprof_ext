@@ -20,7 +20,7 @@ class GatewayFilter extends Filter implements FilteIterface
      * @param mixed ...$params
      * @return bool
      */
-    public function before(...$params)
+    public function before(...$params): bool
     {
         // TODO: Implement beforeFilter() method.
         //域名拦截器
@@ -46,7 +46,7 @@ class GatewayFilter extends Filter implements FilteIterface
      * 后置过滤器校验
      * @param mixed ...$params
      */
-    public function after(...$params)
+    public function after(...$params): bool
     {
         // TODO: Implement afterFilter() method.
         return true;

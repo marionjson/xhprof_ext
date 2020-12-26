@@ -8,10 +8,10 @@ use xhprof\filter\impl\GatewayFilter;
 use xhprof\filter\impl\LimitFilter;
 
 /****
- * Class InitFilter
+ * Class FilterBehavior
  * @package xhprof\filter
  */
-class InitFilter extends BehaviorRegistrar
+class FilterBehavior extends BehaviorRegistrar
 {
     /***
      * 过滤注册器

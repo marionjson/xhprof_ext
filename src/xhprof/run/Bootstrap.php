@@ -4,11 +4,9 @@
 namespace xhprof\run;
 
 
-use xhprof\bean\BaseInstance;
-use xhprof\filter\InitFilter;
-use xhprof\Interceptor\InitInterceptor;
+use xhprof\filter\FilterBehavior;
+use xhprof\Interceptor\InterceptorBehavior;
 use xhprof\util\ConfigUtil;
-use xhprof\util\ShutdownScheduler;
 
 /***
  * 引导程序
@@ -27,8 +25,8 @@ class Bootstrap
             //注册配置
             ConfigUtil::injectionConfig();
             //注册运行 过滤器 和 拦截器
-            InitFilter::getInstance()->register() &&
-            InitInterceptor::getInstance()->register();
+            FilterBehavior::getInstance()->register() &&
+            InterceptorBehavior::getInstance()->register();
         } catch (\BaseException $exception) {
             echo $exception->getMessage();
         }

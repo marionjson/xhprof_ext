@@ -2,6 +2,7 @@
 
 namespace xhprof\bean;
 
+use phpDocumentor\Reflection\Types\Boolean;
 use xhprof\filter\Filter;
 use xhprof\Interceptor\InitInterceptor;
 use xhprof\util\ShutdownScheduler;
@@ -11,9 +12,8 @@ use xhprof\util\ShutdownScheduler;
  * Class BaseInstance
  * @package xhprof\enmus\bean
  */
-class BehaviorRegistrar extends BaseInstance
+class BehaviorRegistrar extends ShutdownScheduler
 {
-    use ShutdownScheduler;
 
     /***
      * 行为注入

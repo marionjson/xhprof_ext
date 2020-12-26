@@ -3,12 +3,14 @@
 namespace xhprof\util;
 
 
+use xhprof\bean\BaseInstance;
+
 /***
  * 事件调度器
  * Class ShutdownScheduler
  * @package xhprof\util
  */
-trait  ShutdownScheduler
+class  ShutdownScheduler extends BaseInstance
 {
     /**
      * 默认是否开启调度器
@@ -40,7 +42,7 @@ trait  ShutdownScheduler
      * 注册关机事件
      * @return bool
      */
-    public static function registerShutdownEvent()
+    public static function registerShutdownEvent(): bool
     {
         self::$callbacks[] = func_get_args();
         return true;

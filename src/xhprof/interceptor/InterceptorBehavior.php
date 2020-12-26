@@ -12,7 +12,7 @@ use xhprof\util\ShutdownScheduler;
  * Class InitInterceptor
  * @package xhprof\Interceptor
  */
-class InitInterceptor extends BehaviorRegistrar
+class InterceptorBehavior extends BehaviorRegistrar
 {
 
     /***

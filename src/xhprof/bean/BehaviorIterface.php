@@ -11,8 +11,8 @@ namespace xhprof\bean;
 interface BehaviorIterface
 {
 
-    public function before(...$params);
+    public function before(...$params): bool;
 
-    public function after(...$params);
+    public function after(...$params): bool;
 
 }

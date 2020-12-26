@@ -32,7 +32,7 @@ class LimitFilter extends Filter implements FilteIterface
      * @param mixed ...$params
      * @return bool
      */
-    public function before(...$params)
+    public function before(...$params): bool
     {
         // TODO: Implement beforeFilter() method.
         //限流处理，获取令牌
@@ -47,7 +47,7 @@ class LimitFilter extends Filter implements FilteIterface
      * @param mixed ...$params
      * @return bool
      */
-    public function after(...$params)
+    public function after(...$params): bool
     {
         // TODO: Implement afterFilter() method.
         //释放令牌
