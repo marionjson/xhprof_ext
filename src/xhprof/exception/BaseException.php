@@ -1,5 +1,10 @@
 <?php
 
+namespace xhprof\exception;
+
+use Exception;
+use Throwable;
+
 /****
  * 异常业务基类
  * Class BaseException

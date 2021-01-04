@@ -13,6 +13,8 @@ use xhprof\filter\impl\LimitFilter;
  */
 class FilterBehavior extends BehaviorRegistrar
 {
+
+
     /***
      * 过滤注册器
      */

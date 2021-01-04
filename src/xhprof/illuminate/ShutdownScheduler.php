@@ -1,6 +1,6 @@
 <?php
 
-namespace xhprof\util;
+namespace xhprof\illuminate;
 
 
 use xhprof\bean\BaseInstance;

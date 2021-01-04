@@ -12,6 +12,7 @@ class BaseInstance
 {
     private static $instance;
 
+
     /***
      * @return BaseInstance
      */

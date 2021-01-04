@@ -2,11 +2,8 @@
 
 namespace xhprof\Interceptor;
 
-use xhprof\bean\BaseInstance;
 use xhprof\bean\BehaviorRegistrar;
 use xhprof\Interceptor\impl\XhprofInterceptor;
-use xhprof\run\Bootstrap;
-use xhprof\util\ShutdownScheduler;
 
 /****
  * Class InitInterceptor

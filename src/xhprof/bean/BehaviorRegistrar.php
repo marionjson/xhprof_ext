@@ -1,11 +1,9 @@
 <?php
 
 namespace xhprof\bean;
-
-use phpDocumentor\Reflection\Types\Boolean;
 use xhprof\filter\Filter;
-use xhprof\Interceptor\InitInterceptor;
-use xhprof\util\ShutdownScheduler;
+use xhprof\illuminate\Container;
+use xhprof\illuminate\ShutdownScheduler;
 
 /***
  * 行为注册器
@@ -41,9 +39,11 @@ class BehaviorRegistrar extends ShutdownScheduler
         /***
          * @var Filter $class
          */
+        $container = new Container();
         foreach (static::getBehaviorInjectionByBehavior($behavior) as $class) {
+            $container->bind($class);
             echo (string)$class . ":" . $behavior . "\n";
-            if (!$class::getInstance()->$behavior()) {
+            if (!$container->make($class)->$behavior()) {
                 return false;
             }
         }
@@ -64,7 +64,7 @@ class BehaviorRegistrar extends ShutdownScheduler
     /***
      * 运行拦截器
      * @param string $behavior
-     * @return bool|InitInterceptor
+     * @return bool
      */
     public function register()
     {

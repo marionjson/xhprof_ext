@@ -6,11 +6,6 @@
 
 namespace xhprof\util;
 
-use think\Request;
-use xhprof\bean\ProcessDetailsBean;
-use xhprof\bean\XhprofBean;
-use xhprof\bean\XhprofExtensionBean;
-use xhprof\enmus\ExtensionEnums;
 
 class RequestUtil
 {
