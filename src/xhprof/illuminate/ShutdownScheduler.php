@@ -42,7 +42,7 @@ class  ShutdownScheduler extends BaseInstance
      * 注册关机事件
      * @return bool
      */
-    public static function registerShutdownEvent(): bool
+    public function registerShutdownEvent(): bool
     {
         self::$callbacks[] = func_get_args();
         return true;

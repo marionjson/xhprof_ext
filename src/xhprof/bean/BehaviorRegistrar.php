@@ -1,6 +1,7 @@
 <?php
 
 namespace xhprof\bean;
+
 use xhprof\filter\Filter;
 use xhprof\illuminate\Container;
 use xhprof\illuminate\ShutdownScheduler;
@@ -10,7 +11,7 @@ use xhprof\illuminate\ShutdownScheduler;
  * Class BaseInstance
  * @package xhprof\enmus\bean
  */
-class BehaviorRegistrar extends ShutdownScheduler
+class BehaviorRegistrar extends Container
 {
 
     /***
@@ -34,16 +35,15 @@ class BehaviorRegistrar extends ShutdownScheduler
      * @param string $behavior
      * @return bool
      */
-    public static function run($behavior)
+    public function run($behavior)
     {
         /***
          * @var Filter $class
          */
-        $container = new Container();
-        foreach (static::getBehaviorInjectionByBehavior($behavior) as $class) {
-            $container->bind($class);
+        foreach ($this->getBehaviorInjectionByBehavior($behavior) as $class) {
+            $this->bind($class);
             echo (string)$class . ":" . $behavior . "\n";
-            if (!$container->make($class)->$behavior()) {
+            if (!$this->make($class)->$behavior()) {
                 return false;
             }
         }
@@ -55,7 +55,7 @@ class BehaviorRegistrar extends ShutdownScheduler
      * @param $behavior
      * @return array
      */
-    public static function getBehaviorInjectionByBehavior($behavior)
+    public function getBehaviorInjectionByBehavior($behavior)
     {
         return $behavior == static::AFTER_BEHAVIOR ? array_reverse(static::BEHAVIOR_INJECTION) : static::BEHAVIOR_INJECTION;
     }
@@ -68,10 +68,10 @@ class BehaviorRegistrar extends ShutdownScheduler
      */
     public function register()
     {
-        return static::run(static::BEFORE_BEHAVIOR) &&
-            static::registerShutdownEvent(
+        return $this->run(static::BEFORE_BEHAVIOR) &&
+            $this->registerShutdownEvent(
                 [
-                    static::getInstance(),
+                    $this,
                     'run'
                 ],
                 static::AFTER_BEHAVIOR

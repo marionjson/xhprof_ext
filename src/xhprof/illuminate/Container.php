@@ -3,6 +3,7 @@
 namespace xhprof\illuminate;
 
 use ReflectionClass;
+use xhprof\bean\BaseInstance;
 use xhprof\exception\BaseException;
 
 /***
@@ -10,7 +11,7 @@ use xhprof\exception\BaseException;
  * Class Container
  * @package xhprof\illuminate
  */
-class Container implements container\Container
+class Container extends ShutdownScheduler implements container\Container
 {
     private $instances = array();
 
