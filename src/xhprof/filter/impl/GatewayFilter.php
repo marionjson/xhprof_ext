@@ -22,6 +22,7 @@ class GatewayFilter extends Filter implements FilteIterface
      */
     public function before(...$params): bool
     {
+
         // TODO: Implement beforeFilter() method.
         //域名拦截器
         if (ConfigUtil::read('xhprof_ignore_domain')) {

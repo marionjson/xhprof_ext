@@ -3,7 +3,6 @@
 namespace xhprof\Interceptor\impl;
 
 
-use phpDocumentor\Reflection\Types\Boolean;
 use xhprof\Interceptor\Interceptor;
 use xhprof\Interceptor\InterceptorIterface;
 use xhprof\service\XhprofService;

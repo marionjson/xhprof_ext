@@ -3,6 +3,7 @@
 
 namespace xhprof\bean;
 
+
 /***
  * 静态单例实体类 - 基类
  * Class BaseInstance
@@ -10,10 +11,13 @@ namespace xhprof\bean;
  */
 class BaseInstance
 {
+    /***
+     * @var array $instance
+     */
     private static $instance;
 
-
     /***
+     * 生成返回实例
      * @return BaseInstance
      */
     public static function getInstance()

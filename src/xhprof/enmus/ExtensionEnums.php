@@ -1,6 +1,7 @@
 <?php
 namespace xhprof\enmus;
 
+
 class ExtensionEnums
 {
     const TIDEWAYS_XHPROF  = "tideways_xhprof";

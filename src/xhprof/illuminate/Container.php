@@ -11,7 +11,7 @@ use xhprof\exception\BaseException;
  * Class Container
  * @package xhprof\illuminate
  */
-class Container extends ShutdownScheduler implements container\Container
+class Container extends BaseInstance implements container\Container
 {
     private $instances = array();
 
@@ -29,7 +29,7 @@ class Container extends ShutdownScheduler implements container\Container
 
     /**
      * 读取容器，构建实例
-     * @param $name
+     * @param string $name
      * @return mixed|object
      * @throws BaseException
      * @throws \ReflectionException

@@ -10,11 +10,13 @@
 // +----------------------------------------------------------------------
 namespace xhprof\enmus;
 
+use SplEnum;
+
 /***
  * 渠道返回对象
  * Class Response
  */
-class Response
+class Response extends SplEnum
 {
 
     public $code;

@@ -4,6 +4,7 @@ namespace xhprof\illuminate;
 
 
 use xhprof\bean\BaseInstance;
+use function Symfony\Component\Translation\t;
 
 /***
  * 事件调度器
@@ -48,6 +49,14 @@ class  ShutdownScheduler extends BaseInstance
         return true;
     }
 
+    /****
+     * 释放事件
+     */
+    public function clearShutdownEvent()
+    {
+        self::$callbacks = [];
+    }
+
     /***
      * 执行响应事件列表
      */
@@ -60,6 +69,7 @@ class  ShutdownScheduler extends BaseInstance
             }
             self::$callbacks = [];
         }
+        return true;
     }
 
 }
