@@ -50,7 +50,16 @@ class BooleanIterator extends FilterIterator
     {
         if (!$this->bool) {
             $this->container->bind($this->getInnerIterator()->current());
-            $this->bool = $this->reverseBoolean(call_user_func([$this->container->make($this->getInnerIterator()->current()), $this->trigger]));
+            $this->bool = $this->reverseBoolean(
+                call_user_func(
+                    [
+                        $this->container->make(
+                            $this->getInnerIterator()->current()
+                        ),
+                        $this->trigger
+                    ]
+                )
+            );
             return $this->bool;
         }
         return true;
