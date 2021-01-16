@@ -2,7 +2,7 @@
 
 ### 环境
 
-- PHP 7.1+
+- PHP 7.1+.
 - xhprof/tideways_xhprof 需要支持7.0以上环境
 
 
