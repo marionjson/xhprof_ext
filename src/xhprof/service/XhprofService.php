@@ -5,22 +5,22 @@ namespace xhprof\service;
 use Redis;
 use xhprof\bean\BaseInstance;
 use xhprof\bean\XhprofBean;
-use xhprof\util\ConfigUtil;
+use xhprof\util\MongoUtil;
 use xhprof\util\RedisUtil;
 use xhprof\util\XhprofUtil;
 
 class XhprofService extends BaseInstance
 {
     /**
-     * @var RedisUtil
+     * @var MongoUtil
      */
-    private $redis;
+    private $mongo;
 
     /***
-     * XhprofList
+     * $redisKey
      * @var string
      */
-    public $redisKey = "XhprofList";
+    public $redisKey = "performanceStatistics";
 
     /***
      * 创角令牌桶
@@ -28,7 +28,7 @@ class XhprofService extends BaseInstance
      */
     public function __construct()
     {
-        $this->redis = RedisUtil::getInstance();
+        $this->mongo = MongoUtil::getInstance();
     }
 
     /****
@@ -48,7 +48,7 @@ class XhprofService extends BaseInstance
         $profProfile = XhprofUtil::disable();
         if ($profProfile instanceof XhprofBean) {
             //TODO 数据库存储实现
-            $this->redis->handler()->lPush($this->redisKey,json_encode($profProfile));
+            $this->mongo->insert($this->redisKey,$profProfile);
         }
         return true;
     }

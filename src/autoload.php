@@ -1,6 +1,7 @@
 <?php
+
 if (!defined('XHPROF_ROOT')) {
-    define("XHPROF_ROOT", "src" . DIRECTORY_SEPARATOR . "xhprof" . DIRECTORY_SEPARATOR);
+    define("XHPROF_ROOT", dirname(dirname(__DIR__)).DIRECTORY_SEPARATOR."xhprof_ext".DIRECTORY_SEPARATOR."src" . DIRECTORY_SEPARATOR . "xhprof" . DIRECTORY_SEPARATOR);
 }
 if (!defined('XHPROF_CONFIG')) {
     define("XHPROF_CONFIG", XHPROF_ROOT . "config" . DIRECTORY_SEPARATOR);

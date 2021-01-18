@@ -9,4 +9,8 @@ return [
         'port'=>6379,
         'timeOut'=>100,
     ],
+    'mongoConfig' => [
+        'host'=>"mongodb://localhost:27017",
+        'dbname'=>"xhprof",
+    ],
 ];

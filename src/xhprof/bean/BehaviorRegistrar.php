@@ -32,7 +32,9 @@ class BehaviorRegistrar extends ShutdownScheduler
      */
     public function getBehaviorInjectionByBehavior($behavior)
     {
-        return $behavior == static::AFTER_BEHAVIOR ? array_reverse(static::BEHAVIOR_INJECTION) : static::BEHAVIOR_INJECTION;
+        return $behavior == static::AFTER_BEHAVIOR ?
+            array_reverse(static::BEHAVIOR_INJECTION) :
+            static::BEHAVIOR_INJECTION;
     }
 
 

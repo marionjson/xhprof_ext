@@ -4,7 +4,11 @@
 namespace xhprof\bean;
 
 
-
+/***
+ *
+ * Class JsonBean
+ * @package xhprof\bean
+ */
 class JsonBean
 {
     /**
