@@ -36,7 +36,6 @@ class LimitFilter extends Filter implements FilteIterface
     {
         // TODO: Implement beforeFilter() method.
         //限流处理，获取令牌
-
         if ($this->trafficShaper->rateLimit() && $this->trafficShaper->collect()) {
             return true;
         }

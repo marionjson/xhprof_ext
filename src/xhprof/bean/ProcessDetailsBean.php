@@ -9,37 +9,37 @@ class  ProcessDetailsBean
      * 调用次数
      * @var
      */
-    private $ct;
+    public $ct;
 
     /***
      * 等待时间
      * @var
      */
-    private $wt;
+    public $wt;
 
     /***
      * cpu时间
      * @var
      */
-    private $cpu;
+    public $cpu;
 
     /***
      * 内存使用
      * @var
      */
-    private $mu;
+    public $mu;
 
     /***
      * 高峰内存使用
      * @var
      */
-    private $pmu;
+    public $pmu;
 
     /***
      * 数据源
      *  @var string
      */
-    private $data;
+    public $data;
 
     /**
      * ProcessDetailsBean constructor.
@@ -52,7 +52,7 @@ class  ProcessDetailsBean
         $this->cpu = isset($xhprof_data['main()']['cpu']) ? $xhprof_data['main()']['cpu'] : 0;
         $this->mu = isset($xhprof_data['main()']['mu']) ? $xhprof_data['main()']['mu'] : 0;
         $this->ct = isset($xhprof_data['main()']['ct']) ? $xhprof_data['main()']['ct'] : 0;
-        $this->data = gzcompress(serialize($xhprof_data), 2);
+        $this->data = $xhprof_data;
     }
 
 }

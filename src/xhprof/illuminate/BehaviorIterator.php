@@ -18,7 +18,7 @@ trait BehaviorIterator
      * @param $behavior
      * @return BooleanIterator
      */
-    public function getBooleanIterator($arrayEnums, $behavior)
+    public function getBooleanIterators($arrayEnums, $behavior)
     {
         return new BooleanIterator(new ArrayIterator($arrayEnums), $behavior);
     }
@@ -31,7 +31,7 @@ trait BehaviorIterator
      */
     public function run($behavior)
     {
-        foreach ($this->getBooleanIterator($this->getBehaviorInjectionByBehavior($behavior), $behavior) as $class)
+        foreach ($this->getBooleanIterators($this->getBehaviorInjectionByBehavior($behavior), $behavior) as $class)
             return false;
         return true;
     }

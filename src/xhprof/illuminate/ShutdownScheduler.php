@@ -2,9 +2,7 @@
 
 namespace xhprof\illuminate;
 
-
 use xhprof\bean\BaseInstance;
-use function Symfony\Component\Translation\t;
 
 /***
  * 事件调度器

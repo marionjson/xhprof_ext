@@ -15,6 +15,16 @@ use xhprof\service\XhprofService;
 class XhprofInterceptor extends Interceptor implements InterceptorIterface
 {
 
+    /**
+     * @var XhprofService
+     */
+    private $XhprofService;
+
+    public function __construct()
+    {
+        $this->XhprofService =  XhprofService::getInstance();
+    }
+
     /***
      * Xhprof前置开启服务
      * @param mixed ...$params
@@ -23,7 +33,7 @@ class XhprofInterceptor extends Interceptor implements InterceptorIterface
     public function before(...$params): bool
     {
         // TODO: Implement beforeInterceptor() method.
-        return XhprofService::enable();
+        return $this->XhprofService->enable();
     }
 
     /****
@@ -34,6 +44,6 @@ class XhprofInterceptor extends Interceptor implements InterceptorIterface
     public function after(...$params): bool
     {
         // TODO: Implement afterInterceptor() method.
-        return XhprofService::disable();
+        return $this->XhprofService->disable();
     }
 }

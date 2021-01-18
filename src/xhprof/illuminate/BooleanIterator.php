@@ -66,7 +66,7 @@ class BooleanIterator extends FilterIterator
     }
 
     /***
-     * 反向布尔器
+     * 反转布尔器
      * @param $bool
      * @return bool
      */

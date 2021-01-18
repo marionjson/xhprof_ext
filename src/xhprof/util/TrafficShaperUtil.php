@@ -38,7 +38,7 @@ class TrafficShaperUtil extends BaseInstance
 
 
     /**
-     * @var Driver
+     * @var RedisUtil
      */
     private $redis;
 
@@ -49,33 +49,33 @@ class TrafficShaperUtil extends BaseInstance
      */
     public function __construct()
     {
+        $this->redis = RedisUtil::getInstance();
         $this->config = $this->config ?: ConfigUtil::read('traffic_shaper');
-//        $this->redis = $this->redis instanceof Driver ? $this->redis : Cache::connect(['type' => 'Redis']);
         $this->maxLimitToken = $this->maxLimitToken ?: $this->config['max_limit_token'];
     }
 
 
     /***
      * 领取令牌
+     * @return bool
      */
     public function collect()
     {
-//        echo "领取令牌\n";
-//        if (!empty($this->maxLimitToken) && $this->redis->handler()->lLen($this->redisKey) < $this->maxLimitToken) {
-//            return $this->redis->handler()->hSet($this->redisKey, RequestUtil::getUUID(),microtime());
-//        }
+        if (!empty($this->maxLimitToken) && $this->redis->handler()->lLen($this->redisKey) < $this->maxLimitToken) {
+            return $this->redis->handler()->hSet($this->redisKey, RequestUtil::getUUID(),microtime());
+        }
         return true;
     }
 
     /***
      * 释放令牌
+     * @return bool
      */
     public function freed()
     {
-//        echo "释放令牌\n";
-//        if ($this->redis->handler()->hGet($this->redisKey, RequestUtil::getUUID())) {
-//            return $this->redis->handler()->hDel($this->redisKey, RequestUtil::getUUID());
-//        }
+        if ($this->redis->handler()->hGet($this->redisKey, RequestUtil::getUUID())) {
+            return $this->redis->handler()->hDel($this->redisKey, RequestUtil::getUUID());
+        }
         return true;
     }
 

@@ -4,5 +4,9 @@ return [
     'mode' => 'development',
     'extension' => 'tideways_xhprof',
     'save.handler' => 'mongodb',
-    'db.host' => 'mongodb://127.0.0.1:27017',
+    'redisConfig' => [
+        'host'=>"127.0.0.1",
+        'port'=>6379,
+        'timeOut'=>100,
+    ],
 ];

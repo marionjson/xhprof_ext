@@ -10,7 +10,7 @@ class XhprofBean
     /***
      * @var string 线程id
      */
-    private $threadId;
+    public $threadId;
 
     /***
      * @var ProcessDetailsBean 分析对象
@@ -73,5 +73,4 @@ class XhprofBean
         }
         return is_array($params) ? implode('&', $params) : $params;
     }
-
 }
