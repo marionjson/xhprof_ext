@@ -19,6 +19,11 @@ class Bootstrap extends ShutdownScheduler
     use BehaviorIterator;
 
     /***
+     * 注册行为
+     */
+    const REGISTER_BEHAVIOR ='register';
+
+    /***
      * 容器注入
      * @var string[]
      */

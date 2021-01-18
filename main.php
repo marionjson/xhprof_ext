@@ -10,8 +10,9 @@ require "src/autoload.php";
  */
 ConfigUtil::injectionConfig();
 /**
+ * 启动引导文件
  * @var Bootstrap $bootstrap
  */
 $bootstrap = Bootstrap::getInstance();
-if(!$bootstrap->run("register"))
+if(!$bootstrap->run(Bootstrap::REGISTER_BEHAVIOR))
     $bootstrap->clearShutdownEvent();
