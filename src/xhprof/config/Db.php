@@ -1,16 +1,18 @@
 <?php
 return [
-    'debug' => false,
-    'mode' => 'development',
+    //extÀ©Õ¹
     'extension' => 'tideways_xhprof',
-    'save.handler' => 'mongodb',
+
+    //redisÅäÖÃ
     'redisConfig' => [
-        'host'=>"127.0.0.1",
-        'port'=>6379,
-        'timeOut'=>100,
+        'host' => "127.0.0.1",
+        'port' => 6379,
+        'timeOut' => 100,
     ],
+
+    //mongoÅäÖÃ
     'mongoConfig' => [
-        'host'=>"mongodb://localhost:27017",
-        'dbname'=>"xhprof",
+        'host' => "mongodb://localhost:27017",
+        'dbname' => "xhprof",
     ],
 ];
