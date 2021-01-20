@@ -14,6 +14,7 @@ use xhprof\exception\BaseException;
 class Container extends BaseInstance implements container\Container
 {
     private $instances = array();
+    private $container = array();
 
     /***
      * 容器填充
@@ -37,11 +38,13 @@ class Container extends BaseInstance implements container\Container
     public function make($name)
     {
         $id = $this->getId($name);
-        if (!isset($this->instances[$id])) {
-            throw new BaseException(sprintf("Can not find instance '%s', probably not injected", $name));
+        if(empty($this->container[$id])){
+            if (!isset($this->instances[$id])) {
+                throw new BaseException(sprintf("Can not find instance '%s', probably not injected", $name));
+            }
+            $this->container[$id] = $this->build($this->instances[$id]);
         }
-        $this->instances[$id] = $this->build($this->instances[$id]);
-        return $this->instances[$id];
+        return $this->container[$id];
     }
 
     /**
