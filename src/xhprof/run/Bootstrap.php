@@ -21,7 +21,7 @@ class Bootstrap extends ShutdownScheduler
     /***
      * 注册行为
      */
-    const REGISTER_BEHAVIOR ='register';
+    const REGISTER_BEHAVIOR ='run';
 
     /***
      * 容器注入

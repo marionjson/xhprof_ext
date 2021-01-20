@@ -29,7 +29,7 @@ trait BehaviorIterator
      * @param string $behavior 行为触发方法
      * @return bool
      */
-    public function run($behavior)
+    public function register($behavior)
     {
         foreach ($this->getBooleanIterators($this->getBehaviorInjectionByBehavior($behavior), $behavior) as $class)
             return false;

@@ -28,7 +28,7 @@ class XhprofInterceptor extends Interceptor implements InterceptorIterface
     /***
      * Xhprof前置开启服务
      * @param mixed ...$params
-     * @return bool|string
+     * @return bool
      */
     public function before(...$params): bool
     {

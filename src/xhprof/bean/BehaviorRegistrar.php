@@ -42,9 +42,9 @@ class BehaviorRegistrar extends ShutdownScheduler
      * 运行拦截器
      * @return bool
      */
-    public function register()
+    public function run()
     {
-        return $this->run(self::BEFORE_BEHAVIOR) &&
+        return $this->register(self::BEFORE_BEHAVIOR) &&
             $this->registerShutdownEvent(
                 [
                     $this,

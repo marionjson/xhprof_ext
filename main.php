@@ -14,5 +14,5 @@ ConfigUtil::injectionConfig();
  * @var Bootstrap $bootstrap
  */
 $bootstrap = Bootstrap::getInstance();
-if(!$bootstrap->run(Bootstrap::REGISTER_BEHAVIOR))
+if(!$bootstrap->register(Bootstrap::REGISTER_BEHAVIOR))
     $bootstrap->clearShutdownEvent();
