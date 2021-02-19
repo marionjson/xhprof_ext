@@ -7,6 +7,12 @@
 - redis 3.0+
 - mongo 4.2+
 
+### 安装
+```shell script
+composer require marionjson/xhprof_ext
+```
+
+
 ### 引入方式
 - main.php 为引导入口
 
