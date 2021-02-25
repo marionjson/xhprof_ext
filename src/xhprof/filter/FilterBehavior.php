@@ -22,12 +22,11 @@ class FilterBehavior extends BehaviorRegistrar
         /***
          * @var GatewayFilter 网关过滤器
          */
-        "xhprof\\filter\\impl\\GatewayFilter",
-
+        GatewayFilter::class,
         /***
          * @var LimitFilter 限流过滤器
          */
-        "xhprof\\filter\\impl\\LimitFilter",
+        LimitFilter::class,
     ];
 
 }

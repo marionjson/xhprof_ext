@@ -31,11 +31,11 @@ class Bootstrap extends ShutdownScheduler
         /***
          * @var FilterBehavior
          */
-        "xhprof\\filter\\FilterBehavior",
+        FilterBehavior::class,
         /***
          * @var InterceptorBehavior
          */
-         "xhprof\\Interceptor\\InterceptorBehavior"
+        InterceptorBehavior::class
     ];
 
     /***

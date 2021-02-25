@@ -19,7 +19,7 @@ class InterceptorBehavior extends BehaviorRegistrar
         /***
          * @var XhprofInterceptor 网关验证器
          */
-        "xhprof\\Interceptor\\impl\\XhprofInterceptor",
+        XhprofInterceptor::class,
     ];
 
 
